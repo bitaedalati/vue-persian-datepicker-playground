@@ -1,0 +1,23 @@
+.datepicker-main .datepicker-main--panel{
+    position: fixed;
+    width: 50%;
+}
+
+textarea {
+    display: block;
+    height: 150px;
+}
+
+.datepicker-checkbox {
+    width: 40% !important;
+}
+
+
+
+/*--Helper--*/
+
+
+.no-padding {
+    padding: 0 !important;
+}
+
