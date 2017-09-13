@@ -44,7 +44,7 @@
                 <div class="row">
                     <div class="col-xs-3">
                         <div class="form-group">
-                            <label>alField:</label>
+                            <label>altField:</label>
                             <input class="form-control" id="altfieldExample"/>
                         </div>
                         <div class="form-group">
@@ -57,16 +57,31 @@
 
                             <!-- Nav tabs -->
                             <ul id="configTab" class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"
-                                                                          data-toggle="tab">Home</a></li>
-                                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab"
-                                                           data-toggle="tab">Profile</a></li>
-                                <li role="presentation"><a href="#timesettings" aria-controls="timesettings" role="tab"
-                                                           data-toggle="tab">Time Setting</a></li>
-                                <li role="presentation"><a href="#setting" aria-controls="setting" role="tab"
-                                                           data-toggle="tab">Setting</a></li>
-                                <li role="presentation"><a href="#messages" aria-controls="messages" role="tab"
-                                                           data-toggle="tab">Messages</a></li>
+                                <li role="presentation" class="active">
+                                    <a href="#home" aria-controls="home" role="tab" data-toggle="tab">
+                                        General
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
+                                        Some Checkbox
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#timesettings" aria-controls="timesettings" role="tab" ata-toggle="tab">
+                                        Picker Settings
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#setting" aria-controls="setting" role="tab" data-toggle="tab">
+                                        ToolBox
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a class="btn-success" href="#messages" aria-controls="messages" role="tab" data-toggle="tab">
+                                        Get Configuration
+                                    </a>
+                                </li>
                             </ul>
 
                             <!-- Tab panes -->
@@ -81,7 +96,7 @@
                                                     <label class="switch">
                                                         <input type="checkbox" v-model="datepickerOptions.inline"
                                                                type="checkbox">
-                                                        <span class="slider"></span>
+                                                        <span class="slider" data-toggle="tooltip" data-placement="bottom" title="right someThings here!"></span>
                                                     </label>
                                                 </div>
                                             </div>
@@ -92,7 +107,7 @@
                                                     <label class="switch">
                                                         <input type="checkbox" v-model="datepickerOptions.persianDigit"
                                                                type="checkbox">
-                                                        <span class="slider"></span>
+                                                        <span class="slider" data-toggle="tooltip" data-placement="bottom" title="If true all digit shows as persian digit"></span>
                                                     </label>
                                                 </div>
                                             </div>
@@ -100,7 +115,8 @@
                                             <div class="form-group col-xs-6">
                                                 <label>format:</label>
                                                 <div>
-                                                    <input class="form-control" v-model="datepickerOptions.format"/>
+                                                    <input :disabled="datepickerOptions.inline" class="form-control"
+                                                           v-model="datepickerOptions.format"/>
                                                 </div>
                                             </div>
                                             <div class="form-group col-xs-6">
@@ -128,7 +144,7 @@
                                             </div>
                                             <div class="form-group col-xs-6">
                                                 <p class="alert alert-info">
-                                                    Default input value formatt string.
+                                                    Format value of input
                                                 </p>
                                             </div>
 
@@ -140,7 +156,7 @@
                                             </div>
                                             <div class="form-group col-xs-6">
                                                 <p class="alert alert-info">
-                                                    Default input value formatt string.
+                                                    Format value of input
                                                 </p>
                                             </div>
 
@@ -153,7 +169,7 @@
                                             </div>
                                             <div class="form-group col-xs-6">
                                                 <p class="alert alert-info">
-                                                    Default input value formatt string.
+                                                    position of datepicker element relative to input element, accept auto, [x,y]
                                                 </p>
                                             </div>
 
@@ -346,7 +362,7 @@
                                                        v-model="datepickerOptions.timePicker.second.step"/>
                                             </div>
                                             <p class="alert alert-info margin-top ">
-                                                minute section step
+                                                second section step
                                             </p>
                                         </div>
 
@@ -416,6 +432,19 @@
                                             </p>
                                         </div>
 
+                                        <div class="form-group col-xs-6">
+                                            <label>Time Picker Step:</label>
+                                            <div>
+                                                <input class="form-control"
+                                                       v-model="datepickerOptions.timePicker.step"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-xs-6">
+                                            <p class="alert alert-info">
+                                                Time section step
+                                            </p>
+                                        </div>
+
 
                                     </div>
                                 </div>
@@ -436,19 +465,6 @@
                                             </p>
                                         </div>
 
-                                        <div class="form-group col-xs-6">
-                                            <label>Time Picker Step:</label>
-                                            <div>
-                                                <input class="form-control"
-                                                       v-model="datepickerOptions.timePicker.step"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-xs-6">
-                                            <p class="alert alert-info">
-                                                Time section step
-                                            </p>
-                                        </div>
-
                                     </div>
                                 </div>
 
@@ -466,188 +482,188 @@
                         </div>
 
 
-                       <!-- <div class="panel hidden-lg hidden-xs">
-                            <div class="panel-body">
-                                <form>-->
-                                    <!--<textarea class="col-xs-12">-->
-                                    <!--{{datepickerOptions}}-->
-                                    <!--</textarea>-->
+                        <!-- <div class="panel hidden-lg hidden-xs">
+                             <div class="panel-body">
+                                 <form>-->
+                        <!--<textarea class="col-xs-12">-->
+                        <!--{{datepickerOptions}}-->
+                        <!--</textarea>-->
 
-                                    <!--<div class="form-group">-->
-                                    <!--<label>format:</label>-->
-                                    <!--<div>-->
-                                    <!--<input class="form-control" v-model="datepickerOptions.format"/>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
+                        <!--<div class="form-group">-->
+                        <!--<label>format:</label>-->
+                        <!--<div>-->
+                        <!--<input class="form-control" v-model="datepickerOptions.format"/>-->
+                        <!--</div>-->
+                        <!--</div>-->
 
-                                    <!-- <div class="form-group">
-                                         <label>persianDigit:</label>
-                                         <input class="form-control" v-model="datepickerOptions.persianDigit"
-                                                type="checkbox"/>
-                                     </div>-->
+                        <!-- <div class="form-group">
+                             <label>persianDigit:</label>
+                             <input class="form-control" v-model="datepickerOptions.persianDigit"
+                                    type="checkbox"/>
+                         </div>-->
 
-                                    <!--<div class="form-group">
-                                        <label>initialValue:</label>
-                                        <input class="form-control" v-model="datepickerOptions.initialValue"
-                                               type="checkbox"/>
-                                    </div>-->
-
-                                    <!--<div class="form-group">-->
-                                    <!--<label>minDate:</label>-->
-                                    <!--<input class="form-control" v-model="datepickerOptions.minDate"/>-->
-                                    <!--</div>-->
-                                    <!--<div class="form-group">-->
-                                    <!--<label>maxDate:</label>-->
-                                    <!--<input class="form-control" v-model="datepickerOptions.maxDate"/>-->
-                                    <!--</div>-->
-                                    <!--<div class="form-group">-->
-                                    <!--<label>Navigator enabled:</label>-->
-                                    <!--<input type="checkbox" class="form-control"-->
-                                    <!--v-model="datepickerOptions.navigator.enabled"/>-->
-                                    <!--</div>-->
-                                    <!--<div class="form-group">-->
-                                    <!--<label>Navigator Scroll enabled:</label>-->
-                                    <!--<input type="checkbox" class="form-control"-->
-                                    <!--v-model="datepickerOptions.navigator.scroll.enabled"/>-->
-                                    <!--</div>-->
-                                    <!--<div class="form-group">
-                                        <label>navigator text btnNextText:</label>
-                                        <input class="form-control"
-                                               v-model="datepickerOptions.navigator.text.btnNextText"/>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>navigator text btnPrevText:</label>
-                                        <input class="form-control"
-                                               v-model="datepickerOptions.navigator.text.btnPrevText"/>
-                                    </div>-->
-
-                                    <!-- <div class="form-group">
-                                         <label>toolbox:</label>
-                                         <input type="checkbox" class="form-control"
-                                                v-model="datepickerOptions.toolbox.enabled"/>
-                                     </div>-->
-
-                                    <!-- <div class="form-group">
-                                         <label>toolbox text btnToday:</label>
-                                         <input class="form-control" v-model="datepickerOptions.toolbox.text.btnToday"/>
-                                     </div>-->
-
-                                    <!-- <div class="form-group">
-                                         <label>onlyTimePicker:</label>
-                                         <input type="checkbox" class="form-control"
-                                                v-model="datepickerOptions.onlyTimePicker"/>
-                                     </div>-->
-
-                                    <!-- <div class="form-group">
-                                         <label>onlySelectOnDate:</label>
-                                         <input type="checkbox" class="form-control"
-                                                v-model="datepickerOptions.onlySelectOnDate"/>
-                                     </div>-->
-
-                                    <!-- <div class="form-group">
-                                         <label>Timepicker:</label>
-                                         <input type="checkbox" class="form-control"
-                                                v-model="datepickerOptions.timePicker.enabled"/>
-                                     </div>-->
-
-                                    <!--<div class="form-group">
-                                        <label>Timepicker step:</label>
-                                        <input type="number" class="form-control"
-                                               v-model="datepickerOptions.timePicker.step"/>
-                                    </div>-->
-
-                                    <!--<div class="form-group">
-                                        <label>Timepicker hour:</label>
-                                        <input type="checkbox" class="form-control"
-                                               v-model="datepickerOptions.timePicker.hour.enabled"/>
-                                    </div>-->
-
-                                    <!-- <div class="form-group">
-                                         <label>Timepicker houe step:</label>
-                                         <input type="number" class="form-control"
-                                                v-model="datepickerOptions.timePicker.hour.step"/>
-                                     </div>-->
-
-                                    <!-- <div class="form-group">
-                                         <label>Timepicker minute:</label>
-                                         <input type="checkbox" class="form-control"
-                                                v-model="datepickerOptions.timePicker.minute.enabled"/>
-                                     </div>
-
-                                     <div class="form-group">
-                                         <label>Timepicker minute step:</label>
-                                         <input type="number" class="form-control"
-                                                v-model="datepickerOptions.timePicker.minute.step"/>
-                                     </div>-->
-
-                                    <!--<div class="form-group">
-                                        <label>Timepicker second:</label>
-                                        <input type="checkbox" class="form-control"
-                                               v-model="datepickerOptions.timePicker.second.enabled"/>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Timepicker second step:</label>
-                                        <input type="number" class="form-control"
-                                               v-model="datepickerOptions.timePicker.second.step"/>
-                                    </div>-->
-
-                                    <!-- <div class="form-group">
-                                         <label>Timepicker meridian:</label>
-                                         <input type="checkbox" class="form-control"
-                                                v-model="datepickerOptions.timePicker.meridian.enabled"/>
-                                     </div>-->
-
-                                    <!--<div class="form-group">
-                                        <label>dayPicker:</label>
-                                        <input type="checkbox" class="form-control"
-                                               v-model="datepickerOptions.dayPicker.enabled"/>
-                                    </div>-->
-
-                                    <!-- <div class="form-group">
-                                         <label>dayPicker titleFormat:</label>
-                                         <input class="form-control" v-model="datepickerOptions.dayPicker.titleFormat"/>
-                                     </div>-->
-
-                                    <!--<div class="form-group">
-                                        <label>monthPicker:</label>
-                                        <input type="checkbox" class="form-control"
-                                               v-model="datepickerOptions.monthPicker.enabled"/>
-                                    </div>-->
-
-                                    <!-- <div class="form-group">
-                                         <label>monthPicker titleFormat:</label>
-                                         <input class="form-control"
-                                                v-model="datepickerOptions.monthPicker.titleFormat"/>
-                                     </div>-->
-
-                                    <!--<div class="form-group">
-                                        <label>yearPicker:</label>
-                                        <input type="checkbox" class="form-control"
-                                               v-model="datepickerOptions.yearPicker.enabled"/>
-                                    </div>-->
-
-                                    <!-- <div class="form-group">
-                                         <label>yearPicker titleFormat:</label>
-                                         <input class="form-control" v-model="datepickerOptions.yearPicker.titleFormat"/>
-                                     </div>-->
-
-                                    <!-- <div class="form-group">
-                                         <label>autoClose:</label>
-                                         <input type="checkbox" class="form-control"
-                                                v-model="datepickerOptions.autoClose"/>
-                                     </div>-->
-
-                                    <!--<div class="form-group">-->
-                                    <!--<label>position:</label>-->
-                                    <!--<input class="form-control" v-model="datepickerOptions.position"/>-->
-                                    <!--</div>-->
-                                <!--</form>
-
-                            </div>
-
+                        <!--<div class="form-group">
+                            <label>initialValue:</label>
+                            <input class="form-control" v-model="datepickerOptions.initialValue"
+                                   type="checkbox"/>
                         </div>-->
+
+                        <!--<div class="form-group">-->
+                        <!--<label>minDate:</label>-->
+                        <!--<input class="form-control" v-model="datepickerOptions.minDate"/>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                        <!--<label>maxDate:</label>-->
+                        <!--<input class="form-control" v-model="datepickerOptions.maxDate"/>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                        <!--<label>Navigator enabled:</label>-->
+                        <!--<input type="checkbox" class="form-control"-->
+                        <!--v-model="datepickerOptions.navigator.enabled"/>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                        <!--<label>Navigator Scroll enabled:</label>-->
+                        <!--<input type="checkbox" class="form-control"-->
+                        <!--v-model="datepickerOptions.navigator.scroll.enabled"/>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">
+                            <label>navigator text btnNextText:</label>
+                            <input class="form-control"
+                                   v-model="datepickerOptions.navigator.text.btnNextText"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label>navigator text btnPrevText:</label>
+                            <input class="form-control"
+                                   v-model="datepickerOptions.navigator.text.btnPrevText"/>
+                        </div>-->
+
+                        <!-- <div class="form-group">
+                             <label>toolbox:</label>
+                             <input type="checkbox" class="form-control"
+                                    v-model="datepickerOptions.toolbox.enabled"/>
+                         </div>-->
+
+                        <!-- <div class="form-group">
+                             <label>toolbox text btnToday:</label>
+                             <input class="form-control" v-model="datepickerOptions.toolbox.text.btnToday"/>
+                         </div>-->
+
+                        <!-- <div class="form-group">
+                             <label>onlyTimePicker:</label>
+                             <input type="checkbox" class="form-control"
+                                    v-model="datepickerOptions.onlyTimePicker"/>
+                         </div>-->
+
+                        <!-- <div class="form-group">
+                             <label>onlySelectOnDate:</label>
+                             <input type="checkbox" class="form-control"
+                                    v-model="datepickerOptions.onlySelectOnDate"/>
+                         </div>-->
+
+                        <!-- <div class="form-group">
+                             <label>Timepicker:</label>
+                             <input type="checkbox" class="form-control"
+                                    v-model="datepickerOptions.timePicker.enabled"/>
+                         </div>-->
+
+                        <!--<div class="form-group">
+                            <label>Timepicker step:</label>
+                            <input type="number" class="form-control"
+                                   v-model="datepickerOptions.timePicker.step"/>
+                        </div>-->
+
+                        <!--<div class="form-group">
+                            <label>Timepicker hour:</label>
+                            <input type="checkbox" class="form-control"
+                                   v-model="datepickerOptions.timePicker.hour.enabled"/>
+                        </div>-->
+
+                        <!-- <div class="form-group">
+                             <label>Timepicker houe step:</label>
+                             <input type="number" class="form-control"
+                                    v-model="datepickerOptions.timePicker.hour.step"/>
+                         </div>-->
+
+                        <!-- <div class="form-group">
+                             <label>Timepicker minute:</label>
+                             <input type="checkbox" class="form-control"
+                                    v-model="datepickerOptions.timePicker.minute.enabled"/>
+                         </div>
+
+                         <div class="form-group">
+                             <label>Timepicker minute step:</label>
+                             <input type="number" class="form-control"
+                                    v-model="datepickerOptions.timePicker.minute.step"/>
+                         </div>-->
+
+                        <!--<div class="form-group">
+                            <label>Timepicker second:</label>
+                            <input type="checkbox" class="form-control"
+                                   v-model="datepickerOptions.timePicker.second.enabled"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Timepicker second step:</label>
+                            <input type="number" class="form-control"
+                                   v-model="datepickerOptions.timePicker.second.step"/>
+                        </div>-->
+
+                        <!-- <div class="form-group">
+                             <label>Timepicker meridian:</label>
+                             <input type="checkbox" class="form-control"
+                                    v-model="datepickerOptions.timePicker.meridian.enabled"/>
+                         </div>-->
+
+                        <!--<div class="form-group">
+                            <label>dayPicker:</label>
+                            <input type="checkbox" class="form-control"
+                                   v-model="datepickerOptions.dayPicker.enabled"/>
+                        </div>-->
+
+                        <!-- <div class="form-group">
+                             <label>dayPicker titleFormat:</label>
+                             <input class="form-control" v-model="datepickerOptions.dayPicker.titleFormat"/>
+                         </div>-->
+
+                        <!--<div class="form-group">
+                            <label>monthPicker:</label>
+                            <input type="checkbox" class="form-control"
+                                   v-model="datepickerOptions.monthPicker.enabled"/>
+                        </div>-->
+
+                        <!-- <div class="form-group">
+                             <label>monthPicker titleFormat:</label>
+                             <input class="form-control"
+                                    v-model="datepickerOptions.monthPicker.titleFormat"/>
+                         </div>-->
+
+                        <!--<div class="form-group">
+                            <label>yearPicker:</label>
+                            <input type="checkbox" class="form-control"
+                                   v-model="datepickerOptions.yearPicker.enabled"/>
+                        </div>-->
+
+                        <!-- <div class="form-group">
+                             <label>yearPicker titleFormat:</label>
+                             <input class="form-control" v-model="datepickerOptions.yearPicker.titleFormat"/>
+                         </div>-->
+
+                        <!-- <div class="form-group">
+                             <label>autoClose:</label>
+                             <input type="checkbox" class="form-control"
+                                    v-model="datepickerOptions.autoClose"/>
+                         </div>-->
+
+                        <!--<div class="form-group">-->
+                        <!--<label>position:</label>-->
+                        <!--<input class="form-control" v-model="datepickerOptions.position"/>-->
+                        <!--</div>-->
+                        <!--</form>
+
+                    </div>
+
+                </div>-->
                     </div>
                 </div>
             </div>
@@ -656,5 +672,10 @@
     </div>
 </div>
 <script src="persian-datepicker.js"></script>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 </body>
 </html>

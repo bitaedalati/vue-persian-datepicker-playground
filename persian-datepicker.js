@@ -7,7 +7,7 @@ Vue.component('datepicker', {
     watch: {
         options: {
             handler: function (val, oldVal) {
-                console.log(this.options.inline)
+                console.log(this.options.inline);
                 var that = this;
                 setTimeout(function () {
                     that.pdatepicker.destroy();
@@ -24,9 +24,7 @@ Vue.component('datepicker', {
 
 
 });
-Vue.component('clipboard' , {
 
-})
 
 $(document).ready(function () {
     $('#configTab a').click(function (e) {
@@ -34,6 +32,7 @@ $(document).ready(function () {
         $(this).tab('show')
     })
 })
+
 
 new Vue({
     deep: true,
@@ -70,18 +69,18 @@ new Vue({
             },
             timePicker: {
                 enabled: true,
-                step: 01,
+                step: 1,
                 hour: {
                     enabled: true,
                     step: 2
                 },
                 minute: {
                     enabled: true,
-                    step: 02
+                    step: 2
                 },
                 second: {
                     enabled: true,
-                    step: 02
+                    step: 2
                 },
                 meridian: {
                     enabled: true

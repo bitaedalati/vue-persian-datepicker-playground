@@ -1,6 +1,16 @@
+a {
+    color: #000 !important;
+}
+
 .datepicker-main .datepicker-main--panel {
     position: fixed;
     width: 50%;
+}
+.navbar {
+    border-radius: 0 !important;
+}
+.navbar-header a {
+    color: hsla(0,0%,100%,.7) !important;
 }
 
 textarea {
@@ -10,6 +20,10 @@ textarea {
 
 .datepicker-checkbox {
     width: 40% !important;
+}
+
+.datepicker-plot-area {
+    width: 286px;
 }
 
 /*--Helper--*/
@@ -61,7 +75,7 @@ textarea {
 }
 
 input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #00A693;
 }
 
 input:focus + .slider {
@@ -85,4 +99,48 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+
+p.alert.alert-info {
+    margin-top: 8px;
+}
+
+/* nav-tab */
+.btn-success {
+    color: #ffffff !important;
+    background-color: #5cb85c !important;
+}
+
+.nav-tabs li a.btn-success:hover,
+.nav-tabs li a.btn-success:focus,
+.nav-tabs li a.btn-success:active {
+    background-color: #5cb85c !important;
+    color: #000 !important;
+}
+
+.options-container a:hover{
+    color : darkgreen;
+}
+
+.nav-tabs li a {
+    border: none !important;
+    border-bottom: 1px solid #eeeeee !important;
+    border-radius: 0 !important;
+}
+
+.nav-tabs li a:hover,
+.nav-tabs li a:focus,
+.nav-tabs li a:active {
+    border-bottom: 1px solid #00a693 !important;
+    background-color: #ffffff !important;
+    color: #00a693 !important;
+}
+
+
+.tooltip {
+    width: 130px;
+}
+.tooltiptext{
+    background-color: rgba(0, 0, 0, 0.39) !important;
 }
