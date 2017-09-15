@@ -2,6 +2,9 @@ a {
     color: #000 !important;
 }
 
+.datepicker-main {
+    min-height: 500px;
+}
 .datepicker-main .datepicker-main--panel {
     position: fixed;
     width: 50%;
@@ -37,6 +40,13 @@ textarea {
     padding: 0 !important;
 }
 
+.datepicker-footer {
+    padding: 2.5rem;
+    color: #999;
+    background-color: #f9f9f9;
+    border-top: .05rem solid #e5e5e5;
+}
+
 /* The switch - the box around the slider */
 .switch {
     position: relative;
@@ -59,8 +69,8 @@ textarea {
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: .1s;
+    transition: .1s;
 }
 
 .slider:before {
@@ -71,8 +81,8 @@ textarea {
     left: 4px;
     bottom: 4px;
     background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: .1s;
+    transition: .1s;
 }
 
 input:checked + .slider {
@@ -138,6 +148,17 @@ p.alert.alert-info {
     color: #00a693 !important;
 }
 
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    border-bottom: 1px solid #00a693 !important;
+    background-color: #ffffff !important;
+    color: #00a693 !important;
+}
+
+
+.nav-tabs > li.active > a.btn-success, .nav-tabs > li.active > a.btn-success:hover, .nav-tabs > li.active > a.btn-success:focus {
+    background-color: #438a43 !important;
+    color: #ffffff !important;
+}
 
 .tooltip {
     width: 130px;
