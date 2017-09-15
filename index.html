@@ -201,7 +201,8 @@
                                             <label>Navigator enabled:</label>
                                             <div>
                                                 <label class="switch">
-                                                    <input type="checkbox" v-model="datepickerOptions.navigator.enabled"
+                                                    <input :disabled="datepickerOptions.onlyTimePicker"
+                                                            type="checkbox" v-model="datepickerOptions.navigator.enabled"
                                                            type="checkbox">
                                                     <span class="slider"></span>
                                                 </label>
@@ -237,10 +238,11 @@
                                             <label>toolbox:</label>
                                             <div>
                                                 <label class="switch">
-                                                    <input type="checkbox"
+                                                    <input :disabled="datepickerOptions.onlyTimePicker"
+                                                            type="checkbox"
                                                            v-model="datepickerOptions.toolbox.enabled">
                                                     <span class="slider"></span>
-                                                </label>
+                                                </label >
                                             </div>
                                         </div>
 
