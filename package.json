@@ -10,8 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "jquery": "^3.2.1",
-    "persian-date": "^0.2.4",
-    "persian-datepicker": "^0.5.10",
+    "persian-date": "^0.3.0-b",
+    "persian-datepicker": "^0.6.0",
     "vue": "^2.4.2"
   },
   "dependencies": {
