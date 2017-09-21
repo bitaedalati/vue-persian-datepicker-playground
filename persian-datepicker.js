@@ -39,8 +39,9 @@ new Vue({
     el: '#app',
     data: {
         datepickerOptions: {
-            inline: false,
+            inline: true,
             format: 'l',
+            viewMode: 'day',
             persianDigit: true,
             initialValue: true,
             minDate: 1504713660730,
@@ -51,6 +52,20 @@ new Vue({
             altField: '#altfieldExample',
             onlyTimePicker: false,
             onlySelectOnDate: false,
+            initialCalendar: 'persian',
+            inputDelay: 800,
+            observer: false,
+            calendar: {
+                persian: {
+                    locale: 'fa',
+                    showHint: true,
+                    leapYearMode: 'algorithmic'
+                },
+                gregorian: {
+                    locale: 'en',
+                    showHint: true
+                }
+            },
             navigator: {
                 enabled: true,
                 scroll: {
@@ -63,8 +78,19 @@ new Vue({
             },
             toolbox: {
                 enabled: true,
+                calendarSwitch: {
+                    enabled: true,
+                    format: 'MMMM'
+                },
+                todayButton: {
+                    enabled: true,
+                    text: {
+                        fa: 'امروز',
+                        en: 'Today',
+                    }
+                },
                 text: {
-                    btnToday: 'today'
+                    btnToday: 'امروز'
                 }
             },
             timePicker: {
@@ -79,7 +105,7 @@ new Vue({
                     step: 2
                 },
                 second: {
-                    enabled: true,
+                    enabled: false,
                     step: 2
                 },
                 meridian: {
