@@ -52,7 +52,7 @@ new Vue({
             altField: '#altfieldExample',
             onlyTimePicker: false,
             onlySelectOnDate: false,
-            initialCalendar: 'persian',
+            calendarType: 'persian',
             inputDelay: 800,
             observer: false,
             calendar: {
