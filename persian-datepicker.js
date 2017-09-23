@@ -89,6 +89,13 @@ new Vue({
                         en: 'Today',
                     }
                 },
+                submitButton: {
+                    enabled: true,
+                    text: {
+                        fa: 'تایید',
+                        en: 'Submit',
+                    }
+                },
                 text: {
                     btnToday: 'امروز'
                 }
