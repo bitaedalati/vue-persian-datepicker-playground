@@ -7,7 +7,7 @@
 
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
-    <script src="persian-date.js"></script>
+    <script src="node_modules/persian-date/dist/persian-date.js"></script>
     <script src="node_modules/persian-datepicker/dist/js/persian-datepicker.js"></script>
     <link rel="stylesheet" type="text/css" href="node_modules/persian-datepicker/dist/css/persian-datepicker.css">
 
@@ -44,7 +44,7 @@
         <div class="row content">
             <div id="app">
                 <div class="row">
-                    <div class="col-xs-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
                         <div class="datepicker-demo-box">
                             <div class="form-group">
                                 <label>altField:</label>
@@ -52,11 +52,12 @@
                             </div>
                             <div class="form-group">
                                 <label>Field:</label>
-                                <datepicker v-bind:options="datepickerOptions"></datepicker>
+                                <datepicker v-on:eventcalled="eventcalled"
+                                            v-bind:options="datepickerOptions"></datepicker>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-9 options-container">
+                    <div class="col-xs-12 col-sm-8 col-md-8  col-lg-9 options-container">
                         <div>
 
                             <!-- Nav tabs -->
@@ -93,11 +94,24 @@
                                     </a>
                                 </li>
                                 <li role="presentation">
+                                    <a href="#template" aria-controls="template" role="tab"
+                                       data-toggle="tab">
+                                        Template
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#eventsbox" aria-controls="eventsbox" role="tab"
+                                       data-toggle="tab">
+                                        event
+                                    </a>
+                                </li>
+                                <li role="presentation">
                                     <a class="btn-success" href="#messages" aria-controls="messages" role="tab"
                                        data-toggle="tab">
                                         Get Configuration
                                     </a>
                                 </li>
+
 
                             </ul>
 
@@ -105,101 +119,102 @@
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane" id="calendar">
                                     <div class="panel-body">
-                                        <div class="col-xs-12">
-                                            <div class="form-group">
-                                                <label>calendarType:</label>
-                                                <select v-model="datepickerOptions.calendarType"
-                                                        class="form-control">
-                                                    <option>persian</option>
-                                                    <option>gregorian</option>
-                                                </select>
-                                                <p class="alert alert-info margin-top">
-                                                    set default calendar mode of datepicker, available options:
-                                                    'persian', 'gregorian'
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xs-6">
-                                            <div class="form-group">
-                                                <label>persian showHint:</label>
-                                                <div>
-                                                    <label class="switch">
-                                                        <input type="checkbox"
-                                                               v-model="datepickerOptions.calendar.persian.showHint">
-                                                        <span class="slider" data-toggle="tooltip"
-                                                              data-placement="bottom"
-                                                              title="right someThings here!"></span>
-                                                    </label>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="form-group">
+                                                    <label>calendarType:</label>
+                                                    <select v-model="datepickerOptions.calendarType"
+                                                            class="form-control">
+                                                        <option>persian</option>
+                                                        <option>gregorian</option>
+                                                    </select>
+                                                    <p class="alert alert-info margin-top">
+                                                        set default calendar mode of datepicker, available options:
+                                                        'persian', 'gregorian'
+                                                    </p>
                                                 </div>
-                                                <p class="alert alert-info margin-top">
-                                                    if set true, small date hint of this calendar will be shown on
-                                                    another calendar
-                                                </p>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="sel1">persian locale:</label>
-                                                <select v-model="datepickerOptions.calendar.persian.locale"
-                                                        class="form-control">
-                                                    <option>fa</option>
-                                                    <option>en</option>
-                                                </select>
-                                                <p class="alert alert-info margin-top">
-                                                    set locale of calendar available options: 'fa', 'en'
-                                                </p>
                                             </div>
 
-                                            <div class="form-group">
-                                                <label for="sel1">persian locale:</label>
-                                                <select v-model="datepickerOptions.calendar.persian.leapYearMode"
-                                                        class="form-control">
-                                                    <option>algorithmic</option>
-                                                    <option>astronomical</option>
-                                                </select>
-                                                <p class="alert alert-info margin-top">
-                                                    if set true, small date hint of this calendar will be shown on
-                                                    another calendar
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6">
-                                            <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <div class="form-group">
+                                                    <label>persian showHint:</label>
+                                                    <div>
+                                                        <label class="switch">
+                                                            <input type="checkbox"
+                                                                   v-model="datepickerOptions.calendar.persian.showHint">
+                                                            <span class="slider" data-toggle="tooltip"
+                                                                  data-placement="bottom"
+                                                                  title="right someThings here!"></span>
+                                                        </label>
+                                                    </div>
+                                                    <p class="alert alert-info margin-top">
+                                                        if set true, small date hint of this calendar will be shown on
+                                                        another calendar
+                                                    </p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="sel1">persian locale:</label>
+                                                    <select v-model="datepickerOptions.calendar.persian.locale"
+                                                            class="form-control">
+                                                        <option>fa</option>
+                                                        <option>en</option>
+                                                    </select>
+                                                    <p class="alert alert-info margin-top">
+                                                        set locale of calendar available options: 'fa', 'en'
+                                                    </p>
+                                                </div>
 
-                                                <div class="row">
-                                                    <label class="col-xs-12">gregorian showHint:</label>
+                                                <div class="form-group">
+                                                    <label for="sel1">persian locale:</label>
+                                                    <select v-model="datepickerOptions.calendar.persian.leapYearMode"
+                                                            class="form-control">
+                                                        <option>algorithmic</option>
+                                                        <option>astronomical</option>
+                                                    </select>
+                                                    <p class="alert alert-info margin-top">
+                                                        if set true, small date hint of this calendar will be shown on
+                                                        another calendar
+                                                    </p>
                                                 </div>
-                                                <div>
-                                                    <label class="switch">
-                                                        <input type="checkbox"
-                                                               v-model="datepickerOptions.calendar.gregorian.showHint">
-                                                        <span class="slider" data-toggle="tooltip"
-                                                              data-placement="bottom"
-                                                              title="right someThings here!"></span>
-                                                    </label>
-                                                </div>
-                                                <p class="alert alert-info margin-top">
-                                                    if set true, small date hint of this calendar will be shown on
-                                                    another calendar
-                                                </p>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="sel1">gregorian locale:</label>
-                                                <select v-model="datepickerOptions.calendar.gregorian.locale"
-                                                        class="form-control" id="sel1">
-                                                    <option>fa</option>
-                                                    <option>en</option>
-                                                </select>
-                                                <p class="alert alert-info margin-top">
-                                                    set locale of calendar available options: 'fa', 'en'
-                                                </p>
+                                            <div class="col-xs-6">
+                                                <div class="form-group">
+
+                                                    <div class="row">
+                                                        <label class="col-xs-12">gregorian showHint:</label>
+                                                    </div>
+                                                    <div>
+                                                        <label class="switch">
+                                                            <input type="checkbox"
+                                                                   v-model="datepickerOptions.calendar.gregorian.showHint">
+                                                            <span class="slider" data-toggle="tooltip"
+                                                                  data-placement="bottom"
+                                                                  title="right someThings here!"></span>
+                                                        </label>
+                                                    </div>
+                                                    <p class="alert alert-info margin-top">
+                                                        if set true, small date hint of this calendar will be shown on
+                                                        another calendar
+                                                    </p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="sel1">gregorian locale:</label>
+                                                    <select v-model="datepickerOptions.calendar.gregorian.locale"
+                                                            class="form-control" id="sel1">
+                                                        <option>fa</option>
+                                                        <option>en</option>
+                                                    </select>
+                                                    <p class="alert alert-info margin-top">
+                                                        set locale of calendar available options: 'fa', 'en'
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane active" id="home">
                                     <div class="panel-body">
-                                        <form action="">
-
+                                        <div class="row">
                                             <div class="form-group col-xs-6">
                                                 <label>inline:</label>
                                                 <div>
@@ -222,7 +237,8 @@
                                                 <label>responsive:</label>
                                                 <div>
                                                     <label class="switch">
-                                                        <input type="checkbox" v-model="datepickerOptions.responsive"
+                                                        <input type="checkbox"
+                                                               v-model="datepickerOptions.responsive"
                                                                type="checkbox">
                                                         <span class="slider" data-toggle="tooltip"
                                                               data-placement="bottom"
@@ -312,7 +328,8 @@
                                                 <label>minDate:</label>
                                                 <input class="form-control" v-model="datepickerOptions.minDate"/>
                                                 <p class="alert alert-info">
-                                                    set min date on datepicker, prevent user select date before given
+                                                    set min date on datepicker, prevent user select date before
+                                                    given
                                                     unix time
                                                 </p>
                                             </div>
@@ -362,57 +379,59 @@
                                                     waite time for last user key-down event, accept millisecond
                                                 </p>
                                             </div>
-
-                                        </form>
+                                        </div>
                                     </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="profile">
                                     <div class="panel-body">
-                                        <div class="form-group col-xs-6">
-                                            <label>Navigator enabled:</label>
-                                            <div>
-                                                <label class="switch">
-                                                    <input :disabled="datepickerOptions.onlyTimePicker"
-                                                           type="checkbox" v-model="datepickerOptions.navigator.enabled"
-                                                           type="checkbox">
-                                                    <span class="slider"></span>
-                                                </label>
-                                            </div>
+                                        <div class="row">
+                                            <div class="form-group col-xs-6">
+                                                <label>Navigator enabled:</label>
+                                                <div>
+                                                    <label class="switch">
+                                                        <input :disabled="datepickerOptions.onlyTimePicker"
+                                                               type="checkbox"
+                                                               v-model="datepickerOptions.navigator.enabled"
+                                                               type="checkbox">
+                                                        <span class="slider"></span>
+                                                    </label>
+                                                </div>
 
-                                            <p class="alert alert-info">
-                                                make navigator enable or disable
-                                            </p>
+                                                <p class="alert alert-info">
+                                                    make navigator enable or disable
+                                                </p>
 
-                                        </div>
-                                        <div class="form-group col-xs-6">
-                                            <label>Navigator Scroll enabled:</label>
-                                            <div>
-                                                <label class="switch">
-                                                    <input type="checkbox"
-                                                           v-model="datepickerOptions.navigator.scroll.enabled"
-                                                           type="checkbox">
-                                                    <span class="slider"></span>
-                                                </label>
                                             </div>
-                                            <p class="alert alert-info">
-                                                if you want make disable scroll navigation set this option false
-                                            </p>
-                                        </div>
-                                        <div class="form-group col-xs-6">
-                                            <label>next button text:</label>
-                                            <input type="text"
-                                                   v-model="datepickerOptions.navigator.text.btnNextText"/>
-                                            <p class="alert alert-info">
-                                                text of next button
-                                            </p>
-                                        </div>
-                                        <div class="form-group col-xs-6">
-                                            <label>previews button text:</label>
-                                            <input type="text"
-                                                   v-model="datepickerOptions.navigator.text.btnPrevText"/>
-                                            <p class="alert alert-info">
-                                                text of previews button
-                                            </p>
+                                            <div class="form-group col-xs-6">
+                                                <label>Navigator Scroll enabled:</label>
+                                                <div>
+                                                    <label class="switch">
+                                                        <input type="checkbox"
+                                                               v-model="datepickerOptions.navigator.scroll.enabled"
+                                                               type="checkbox">
+                                                        <span class="slider"></span>
+                                                    </label>
+                                                </div>
+                                                <p class="alert alert-info">
+                                                    if you want make disable scroll navigation set this option false
+                                                </p>
+                                            </div>
+                                            <div class="form-group col-xs-6">
+                                                <label>next button text:</label>
+                                                <input type="text"
+                                                       v-model="datepickerOptions.navigator.text.btnNextText"/>
+                                                <p class="alert alert-info">
+                                                    text of next button
+                                                </p>
+                                            </div>
+                                            <div class="form-group col-xs-6">
+                                                <label>previews button text:</label>
+                                                <input type="text"
+                                                       v-model="datepickerOptions.navigator.text.btnPrevText"/>
+                                                <p class="alert alert-info">
+                                                    text of previews button
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -507,7 +526,22 @@
 
                                         <h3>Timepicker</h3>
                                         <div class="row">
-                                            <div class="form-group col-xs-12">
+
+                                            <div class="form-group col-xs-6">
+                                                <label>onlyTimePicker:</label>
+                                                <div>
+                                                    <label class="switch">
+                                                        <input type="checkbox"
+                                                               v-model="datepickerOptions.onlyTimePicker">
+                                                        <span class="slider"></span>
+                                                    </label>
+                                                </div>
+                                                <p class="alert alert-info margin-top ">
+                                                    if true all pickers hide and just show timepicker
+                                                </p>
+                                            </div>
+
+                                            <div class="form-group col-xs-6">
                                                 <label>timPicker:</label>
                                                 <div>
                                                     <label class="switch">
@@ -619,13 +653,6 @@
                                     </div>
                                 </div>
 
-                                <div role="tabpanel" class="tab-pane" id="setting">
-                                    <div class="panel-body">
-
-                                    </div>
-                                </div>
-
-
                                 <div role="tabpanel" class="tab-pane" id="calender">
 
                                     <div class="panel-body">
@@ -678,7 +705,7 @@
                                             </div>
                                         </div>
 
-                                         <div class="row">
+                                        <div class="row">
                                             <div class="form-group col-xs-4">
                                                 <label>submitButton enabled:</label>
                                                 <div>
@@ -739,10 +766,23 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div role="tabpanel" class="tab-pane" id="eventsbox">
+                                    <div class="panel-body">
+                                        <textarea class="form-control"
+                                                  rows="20"
+                                                  v-model="eventsLog"></textarea>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="template">
+                                    <div class="panel-body">
+                                        <textarea class="form-control"
+                                                  rows="20"
+                                                  v-model="datepickerOptions.template"></textarea>
+                                    </div>
+                                </div>
                                 <div role="tabpanel" class="tab-pane" id="messages">
                                     <div class="panel-body">
                                         <textarea class="form-control" rows="20">{{datepickerOptions}}</textarea>
-                                        </template>
                                     </div>
                                 </div>
                             </div>
