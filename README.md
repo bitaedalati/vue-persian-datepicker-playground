@@ -1,2 +1,3 @@
-# vue-persian-datepicker
-Persian date picker Vue component
+# vue-persian-datepicker-playground
+persian datepicker config generator and playground 
+[Demo](http://babakhani.github.io/PersianWebToolkit/doc/datepicker/playground.html)
